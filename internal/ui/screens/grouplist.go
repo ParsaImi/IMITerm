@@ -61,7 +61,13 @@ func (g GroupList) View() string {
 
 	var rows string
 	if len(g.groups) == 0 {
-		rows = styles.SearchNoMatch.Render("No groups yet. Press a to add one.")
+		welcome := "\n"
+		welcome += styles.GroupName.Render("  Welcome to IMITERM!") + "\n\n"
+		welcome += styles.ListItemDim.Render("  You have no server groups yet.") + "\n"
+		welcome += styles.ListItemDim.Render("  Press ") + styles.HelpKey.Render("a") + styles.ListItemDim.Render(" to create your first group,") + "\n"
+		welcome += styles.ListItemDim.Render("  then add hosts to it and connect with ") + styles.HelpKey.Render("Enter") + styles.ListItemDim.Render(".") + "\n\n"
+		welcome += styles.ListItemDim.Render("  Config: ~/.config/imiterm/config.toml") + "\n"
+		rows = welcome
 	}
 
 	for i, group := range g.groups {
