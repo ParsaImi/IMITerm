@@ -17,29 +17,34 @@ A TUI SSH connection manager for the terminal. Save your servers, organize them 
 
 ## Install
 
+### Download binary (no Go required)
+
+Grab the latest binary from [Releases](https://github.com/ParsaImi/imiterm/releases):
+
+```bash
+# Linux (amd64)
+curl -L https://github.com/ParsaImi/imiterm/releases/latest/download/imiterm-linux-amd64 -o imiterm
+chmod +x imiterm
+sudo mv imiterm /usr/local/bin/
+
+# macOS (Apple Silicon)
+curl -L https://github.com/ParsaImi/imiterm/releases/latest/download/imiterm-darwin-arm64 -o imiterm
+chmod +x imiterm
+sudo mv imiterm /usr/local/bin/
+```
+
 ### From source (requires Go 1.22+)
 
 ```bash
 go install github.com/ParsaImi/imiterm/cmd/imiterm@latest
 ```
 
-Or clone and build:
-
-```bash
-git clone https://github.com/ParsaImi/imiterm.git
-cd imiterm
-go build -o imiterm ./cmd/imiterm/
-sudo mv imiterm /usr/local/bin/
-```
-
 ### System dependencies
 
 ```bash
 # Required for password-authenticated hosts
-sudo apt install sshpass
-
-# Required for git sync feature
-sudo apt install git
+sudo apt install sshpass    # Debian/Ubuntu
+# or: brew install sshpass  # macOS (via homebrew)
 ```
 
 ## Usage
